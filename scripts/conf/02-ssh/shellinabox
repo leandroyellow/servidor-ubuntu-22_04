@@ -1,0 +1,27 @@
+# Autor: Leandro Queiroz Trepador
+# Data de criação: 09/05/2023
+# Data de atualização: 09/05/2023
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+# Testado e homologado para a versão do OpenSSH Server v8.2.x
+# Testado e homologado para a versão do Shell-In-a-Box v2.x
+#
+# Configuração do inicialização automática do Shell-In-a-Box como serviço
+SHELLINABOX_DAEMON_START=1
+#
+# Porta padrão utilizada pelo Webservice do Shell-In-a-Box
+SHELLINABOX_PORT=4200
+#
+# Configuração do Usuário e Grupo padrão do serviço do Shell-In-a-Box
+SHELLINABOX_USER=shellinabox
+SHELLINABOX_GROUP=shellinabox
+#
+# Localização padrão do diretório de informações de acesso do Shell-In-a-Box
+SHELLINABOX_DATADIR=/var/lib/shellinabox
+#
+# Configurações dos argumentos utilizados pelo Shell-In-a-Box
+# --no-beep: bipes são desativados devido a relatos de falha do plug-in VLC no Firefox
+# --service=/:SSH: configuração do endereço IPv4 do servidor de OpenSSH Server
+# Mais opções de argumentos veja a documentação oficial do Shell-In-a-Box no Link:
+# https://manpages.debian.org/unstable/shellinabox/shellinaboxd.1.en.html
+SHELLINABOX_ARGS="--no-beep --service=/:SSH:192.168.1.201"
