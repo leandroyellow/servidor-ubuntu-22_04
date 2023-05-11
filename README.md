@@ -6,13 +6,13 @@
 Leandro Queiroz Trepador<br>
 
 <div align="center">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/vaamonde/ubuntu-2004?style=plastic">
-<a href="https://github.com/vaamonde/ubuntu-2004/stargazers"><img src="https://img.shields.io/github/stars/vaamonde/ubuntu-2004" alt="Stars Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2004/network/members"><img src="https://img.shields.io/github/forks/vaamonde/ubuntu-2004" alt="Forks Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2004/pulls"><img src="https://img.shields.io/github/issues-pr/vaamonde/ubuntu-2004" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2004/issues"><img src="https://img.shields.io/github/issues/vaamonde/ubuntu-2004" alt="Issues Badge"/></a>
-<a href="https://github.com/vaamonde/ubuntu-2004/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vaamonde/ubuntu-2004?color=2b9348"></a>
-<a href="https://github.com/vaamonde/ubuntu-2004/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2004?color=2b9348" alt="License Badge"/></a>
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/leandroyellow/servidor-ubuntu-22_04?style=plastic">
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/stargazers"><img src="https://img.shields.io/github/stars/leandroyellow/servidor-ubuntu-22_04" alt="Stars Badge"/></a>
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/network/members"><img src="https://img.shields.io/github/forks/leandroyellow/servidor-ubuntu-22_04" alt="Forks Badge"/></a>
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/pulls"><img src="https://img.shields.io/github/issues-pr/leandroyellow/servidor-ubuntu-22_04" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/issues"><img src="https://img.shields.io/github/issues/leandroyellow/servidor-ubuntu-22_04" alt="Issues Badge"/></a>
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/leandroyellow/servidor-ubuntu-22_04?color=2b9348"></a>
+<a href="https://github.com/leandroyellow/servidor-ubuntu-22_04/blob/master/LICENSE"><img src="https://img.shields.io/github/license/leandroyellow/servidor-ubuntu-22_04?color=2b9348" alt="License Badge"/></a>
 </div>
 
 Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 20.04.x LTS, essa versão foi projetada para uma fácil implementação, administração e configuração dos principais serviços de rede utilizados no nosso dia a dia.
