@@ -1,8 +1,8 @@
 #!/bin/bash
 # Autor: Leandro Queiroz Trepador
 # Data de criação: 09/05/2023
-# Data de atualização: 09/05/2023
-# Versão: 0.01
+# Data de atualização: 11/05/2023
+# Versão: 0.02
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.2.x
 #
@@ -182,6 +182,8 @@ echo -e "Aguarde, esse processo demora um pouco dependendo do seu Link de Intern
 sleep 5
 #
 echo -e "Adicionando o Repositório Universal do Apt, aguarde..."
+sleep 10
+echo -e "Pressione ENTER"
 	# Universe - Software de código aberto mantido pela comunidade:
 	# opção do comando: &>> (redirecionar a saída padrão)
 	add-apt-repository universe &>> $LOG
@@ -189,6 +191,8 @@ echo -e "Repositório adicionado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
 echo -e "Adicionando o Repositório Multiversão do Apt, aguarde..."
+sleep 10
+echo -e "Pressione ENTER"
 	# Multiverse – Software não suportado, de código fechado e com patente: 
 	# opção do comando: &>> (redirecionar a saída padrão)
 	add-apt-repository multiverse &>> $LOG
@@ -196,6 +200,8 @@ echo -e "Repositório adicionado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
 echo -e "Adicionando o Repositório Restrito do Apt, aguarde..."
+sleep 10
+echo -e "Pressione ENTER"
 	# Restricted - Software de código fechado oficialmente suportado:
 	# opção do comando: &>> (redirecionar a saída padrão)
 	add-apt-repository restricted &>> $LOG
@@ -262,6 +268,7 @@ echo -e "CUIDADO!!!: o nome do arquivo de configuração da placa de rede pode m
 echo -e "dependendo da versão do Ubuntu Server, verifique o conteúdo do diretório:"
 echo -e "/etc/netplan para saber o nome do arquivo de configuração do Netplan e altere"
 echo -e "o valor da variável NETPLAN no arquivo de configuração: 00-parametros.sh"
+echo -e "Pressione ENTER"
 	# opção do comando read: -s (Do not echo keystrokes)
 	read -s
 	vim $NETPLAN
