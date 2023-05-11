@@ -81,7 +81,7 @@ Gerando um novo Token
 		
 
 #Clonando um Repositório Remoto do Github.
-git clone https://github.com/vaamonde/devops.git
+git clone https://github.com/leandroyellow/servidor-ubuntu-22_04
 cd devops
 ls -lha
 
