@@ -1,8 +1,8 @@
 #!/bin/bash
 # Autor: Leandro Queiroz Trepador
 # Data de criação: 09/05/2023
-# Data de atualização: 11/05/2023
-# Versão: 0.02
+# Data de atualização: 15/05/2023
+# Versão: 0.03
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.2.x
 #
@@ -63,6 +63,11 @@
 #
 #	Segunda etapa: Powershell do perfil do usuário sem ser como administrador
 #		ssh-add .\leandro <Enter>
+#
+# Para autenticar com a chave pública editar o arquivo /etc/ssh/sshd_config
+# sudo vim /etc/ssh/sshd_config (modificar o metodo de autenticação AuthenticationMethods)
+# sudo systemctl restart ssh
+# sudo systemctl status ssh
 #
 # Arquivo de configuração dos parâmetros utilizados nesse script
 source 00-parametros.sh

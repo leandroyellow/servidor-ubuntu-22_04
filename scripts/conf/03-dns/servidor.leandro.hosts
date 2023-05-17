@@ -1,0 +1,68 @@
+; Autor: Leandro Queiroz Trepador
+; Data de criação: 16/05/2023
+; Data de atualização: 16/05/2023
+; Versão: 0.01
+; Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+; Testado e homologado para a versão do Bind9 DNS Server v9.16.x
+;
+; Anatomia do arquivo de configuração de Zona de Pesquisa Direta do Bind9 DNS Server.
+; $ORIGIN = atalho de referência do nome de domínio e que termina o seu conteúdo na próxima linha.
+; $TTL 3600 = 1 (uma) semana de TTL (Time to Live) tempo de vida das respostas fornecidas pelo DNS.
+; @ = label especial que indica que $ORIGIN deve substituir o símbolo “@”.
+; @	IN SOA = registro SOA (Start Of Authority) responsável em informar o início da autoridade para o domínio. 
+; 	1 = serial para controle de atualizações entre master e slave
+; 	604800 = tempo de atualizações entre master e slave (refresh) atualização 1 (uma) semana
+; 	86400 = tempo de atualizações caso o refresh falhe retenção 1 (um) dia
+; 	2419200 = tempo de expiração do slave caso não se contate com o master expiração 4 (quatro) semanas
+; 	604800 = tempo de vida das repostas negativas do servidor mínimo retenção de 1 (uma) semana
+; @ IN 	NS	servidorweb.servidor.leandro. = configuração do Name Server (Nome do Servidor) do domínio.
+; @ IN 	MX	10 mail = configuração do Mail Exchanger (registros de troca de e-mail) do domínio
+; @ IN	TXT	"v=spf1 a mx -all" = registro de Texto com informações do SPF (Sender Policy Framework)
+
+$ORIGIN servidor.leandro.
+$TTL 3600 ; 1 hour
+@		IN		SOA		servidorweb.servidor.leandro. leandro.servidor.leandro. (
+				1 ; serial
+				604800 ; refresh (1 week)
+				86400 ; retry (1 day)
+				2419200 ; expire (4 weeks)
+				604800 ; minimum (1 week)
+				)
+;
+@               IN 		NS		servidorweb.servidor.leandro.
+@               IN 		MX		10 mail
+@               IN		TXT		"v=spf1 a mx -all"
+;
+servidor.leandro.      IN 		A 		192.168.1.201
+servidorweb            IN 		A		  192.168.1.201
+mail                   IN 		A 		192.168.1.201
+;
+cloud           IN		CNAME	servidorweb
+ftp             IN		CNAME	servidorweb
+grafana         IN		CNAME	servidorweb
+glpi9           IN		CNAME	servidorweb
+glpi10          IN		CNAME	servidorweb
+helpdesk        IN		CNAME	servidorweb
+imap4           IN		CNAME	servidorweb
+imap            IN		CNAME	servidorweb
+loganalyzer     IN		CNAME	servidorweb
+log             IN		CNAME	servidorweb
+mysql           IN		CNAME	servidorweb
+netdata         IN		CNAME	servidorweb
+next            IN		CNAME	servidorweb
+nfs             IN		CNAME	servidorweb
+ntp             IN		CNAME	servidorweb
+own             IN		CNAME	servidorweb
+pop3            IN		CNAME	servidorweb
+portal          IN		CNAME	servidorweb
+pxe             IN		CNAME	servidorweb
+smtp            IN		CNAME	servidorweb
+ssh             IN		CNAME	servidorweb
+suporte         IN		CNAME	servidorweb
+tftp            IN		CNAME	servidorweb
+webdav          IN		CNAME	servidorweb
+wpad            IN		CNAME	servidorweb
+wp              IN		CNAME	servidorweb
+www             IN		CNAME	servidorweb
+zm              IN		CNAME	servidorweb
+
