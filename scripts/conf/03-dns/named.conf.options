@@ -18,9 +18,9 @@ options {
 	// Endereços IPv4 de encaminhamento para servidores de DNS externos.
 	// Padrão do encaminhamento é enviar as consultas para o servidor de Firewall 
 	forwarders {
-		192.168.1.254;
-		//8.8.8.8;
-		//8.8.4.4;
+		//192.168.1.254;
+		8.8.8.8;
+		8.8.4.4;
 	};
 
 	// Número da porta de conexão do Bind9 DNS Server e Endereço IPv4 liberado.
