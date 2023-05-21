@@ -222,9 +222,9 @@ echo -e "Atualizando os arquivos de configuração do Bind DNS Server, aguarde..
 	cp -v conf/03-dns/{db.servidor.leandro,db.192.168.1.rev} /etc/bind/zones/ &>> $LOG
 	cp -v conf/03-dns/{dnsupdate-cron,rndcupdate-cron} /etc/cron.d/ &>> $LOG
 	cp -v conf/03-dns/named /etc/default/ &>> $LOG
-	cp -v conf/03-dns/rndcstats /etc/logrotate.d/ &>> $LOG
+  cp -v conf/03-dns/rndcstats /etc/logrotate.d/ &>> $LOG
 	chown -v root:bind /etc/bind/rndc.key &>> $LOG
-	chown -v root:bind /var/lib/bind/{servidor.leandro.hosts,172.16.1.rev} &>> $LOG
+	chown -v root:bind /etc/bind/zones/{db.servidor.leandro,db.192.168.1.rev} &>> $LOG
 echo -e "Arquivos atualizados com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
