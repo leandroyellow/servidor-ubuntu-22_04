@@ -1,11 +1,10 @@
 #!/bin/bash
 # Autor: Leandro Queiroz Trepador
 # Data de criação: 16/05/2023
-# Data de atualização: 16/05/2023
-# Versão: 0.01
+# Data de atualização: 21/05/2023
+# Versão: 0.02
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
-# Testado e homologado para a versão do ISC DHCP Server v4.4.x
-# Testado e homologado para a versão do Bind DNS Sever v9.16.x
+# Testado e homologado para a versão do Bind DNS Sever v9.18.x
 #
 # O Bind DNS Server BIND (Berkeley Internet Name Domain ou, como chamado previamente, 
 # Berkeley Internet Name Daemon) é o servidor para o protocolo DNS mais utilizado na 
@@ -211,16 +210,16 @@ echo -e "Atualizando os arquivos de configuração do Bind DNS Server, aguarde..
 	# opção do comando cp: -v (verbose)
 	# opção do bloco e agrupamentos {}: (Agrupa comandos em um bloco)
 	# opção do comando chown: -R (recursive), -v (verbose), root (user), bind (user), bind (group)
-	mkdir -v /var/log/named/ &>> $LOG
-	chown -Rv bind:bind /var/log/named/ &>> $LOG
+	# mkdir -v /var/log/named/ &>> $LOG
+  mkdir -p /etc/bind/zones/ &>> $LOG
+	# chown -Rv bind:bind /var/log/named/ &>> $LOG
 	mv -v /etc/bind/named.conf /etc/bind/named.conf.old &>> $LOG
+	mv -v /etc/bind/named.conf.default-zones /etc/bind/named.conf.default-zones.old &>> $LOG
 	mv -v /etc/bind/named.conf.local /etc/bind/named.conf.local.old &>> $LOG
 	mv -v /etc/bind/named.conf.options /etc/bind/named.conf.options.old &>> $LOG
-	mv -v /etc/bind/named.conf.default-zones /etc/bind/named.conf.default-zones.old &>> $LOG
-	mv -v /etc/bind/rndc.key /etc/bind/rndc.key.old &>> $LOG
 	mv -v /etc/default/named /etc/default/named.old &>> $LOG
-	cp -v conf/03-dns/{named.conf,named.conf.local,named.conf.options,named.conf.default-zones,rndc.key} /etc/bind/ &>> $LOG
-	cp -v conf/03-dns/{servidor.leandro.hosts,192.168.1.rev} /var/lib/bind/ &>> $LOG
+	cp -v conf/03-dns/{named.conf,named.conf.default-zones,named.conf.local,named.conf.options} /etc/bind/ &>> $LOG
+	cp -v conf/03-dns/{db.servidor.leandro,db.192.168.1.rev} /etc/bind/zones/ &>> $LOG
 	cp -v conf/03-dns/{dnsupdate-cron,rndcupdate-cron} /etc/cron.d/ &>> $LOG
 	cp -v conf/03-dns/named /etc/default/ &>> $LOG
 	cp -v conf/03-dns/rndcstats /etc/logrotate.d/ &>> $LOG
@@ -260,29 +259,29 @@ echo -e "Editando o arquivo de configuração named.conf.default-zones, pression
 echo -e "Arquivo editado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
-echo -e "Editando o arquivo de configuração rndc.key, pressione <Enter> para continuar."
+# echo -e "Editando o arquivo de configuração rndc.key, pressione <Enter> para continuar."
 	# opção do comando read: -s (Do not echo keystrokes)
-	read -s
-	vim /etc/bind/rndc.key
-echo -e "Arquivo editado com sucesso!!!, continuando com o script...\n"
-sleep 5
+# 	read -s
+# 	vim /etc/bind/rndc.key
+# echo -e "Arquivo editado com sucesso!!!, continuando com o script...\n"
+# sleep 5
 #
-echo -e "Editando o arquivo de configuração servidor.leandro.hosts, pressione <Enter> para continuar."
+echo -e "Editando o arquivo de configuração db.servidor.leandro, pressione <Enter> para continuar."
 	# opção do comando: &>> (redirecionar a saída padrão)
 	# opção do comando read: -s (Do not echo keystrokes)
 	read -s
-	vim /var/lib/bind/servidor.leandro.hosts
-	named-checkzone $DOMAIN /var/lib/bind/servidor.leandro.hosts &>> $LOG
+	vim /etc/bind/zones/db.servidor.leandro
+	named-checkzone $DOMAIN /etc/bind/zones/db.servidor.leandro &>> $LOG
 echo -e "Arquivo editado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
-echo -e "Editando o arquivo de configuração 192.168.1.rev, pressione <Enter> para continuar."
+echo -e "Editando o arquivo de configuração db.192.168.1.rev, pressione <Enter> para continuar."
 	# opção do comando: &>> (redirecionar a saída padrão)
 	# opção do comando read: -s (Do not echo keystrokes)
 	read -s
-	vim /var/lib/bind/192.168.1.rev
-	named-checkzone $DOMAINREV /var/lib/bind/172.16.1.rev &>> $LOG
-	named-checkzone $NETWORK /var/lib/bind/172.16.1.rev &>> $LOG
+	vim /etc/bind/zones/db.192.168.1.rev
+	named-checkzone $DOMAINREV /etc/bind/zones/db.192.168.1.rev &>> $LOG
+	named-checkzone $NETWORK /etc/bind/zones/db.192.168.1.rev &>> $LOG
 echo -e "Arquivo editado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #

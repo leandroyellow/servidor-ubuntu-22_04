@@ -1,9 +1,9 @@
 ; Autor: Leandro Queiroz Trepador
 ; Data de criação: 16/05/2023
-; Data de atualização: 16/05/2023
-; Versão: 0.01
+; Data de atualização: 21/05/2023
+; Versão: 0.02
 ; Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
-; Testado e homologado para a versão do Bind9 DNS Server v9.16.x
+; Testado e homologado para a versão do Bind9 DNS Server v9.18.x
 ;
 ; Anatomia do arquivo de configuração de Zona de Pesquisa Direta do Bind9 DNS Server.
 ; $ORIGIN = atalho de referência do nome de domínio e que termina o seu conteúdo na próxima linha.
@@ -22,20 +22,27 @@
 $ORIGIN servidor.leandro.
 $TTL 3600 ; 1 hour
 @		IN		SOA		servidorweb.servidor.leandro. leandro.servidor.leandro. (
-				1 ; serial
-				604800 ; refresh (1 week)
-				86400 ; retry (1 day)
-				2419200 ; expire (4 weeks)
-				604800 ; minimum (1 week)
+				1             ; serial
+				604800        ; refresh (1 week)
+				86400         ; retry (1 day)
+				2419200       ; expire (4 weeks)
+				604800        ; minimum (1 week)
 				)
 ;
+
+
+; NS records for name servers
 @               IN 		NS		servidorweb.servidor.leandro.
 @               IN 		MX		10 mail
-@               IN		TXT		"v=spf1 a mx -all"
-;
-servidor.leandro.      IN 		A 		192.168.1.201
-servidorweb            IN 		A		  192.168.1.201
-mail                   IN 		A 		192.168.1.201
+
+
+; A records for name servers
+servidorweb.servidor.leandro.       IN 		A 		192.168.1.201
+servidorweb                         IN 		A		  192.168.1.201
+mail                                IN 		A 		192.168.1.201
+
+
+
 ;
 cloud           IN		CNAME	servidorweb
 ftp             IN		CNAME	servidorweb

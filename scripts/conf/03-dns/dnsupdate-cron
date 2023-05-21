@@ -3,7 +3,7 @@
 # Data de atualização: 16/05/2023
 # Versão: 0.01
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
-# Testado e homologado para a versão do Bind9 DNS Server v9.16.x
+# Testado e homologado para a versão do Bind9 DNS Server v9.18.x
 #
 # Agendamento das atualizações dos Registros do Bind9 DNS Server a cada 1 minuto, todos os dias
 # Obs: esse agendamento resolve o problema dos arquivo *.jnl de atualização dinâmica do Bind9
